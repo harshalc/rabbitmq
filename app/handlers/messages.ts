@@ -2,7 +2,7 @@
 import db from '../db/db';
 
 class MessageController {
-    getAllMessages(req, res) {
+    getAllMessages(req:Object, res:Object) {
         return res.status(200).send({
             success: 'true',
             message: 'messages retrieved successfully',
@@ -10,7 +10,7 @@ class MessageController {
         });
     }
 
-    getMessage(req, res) {
+    getMessage(req:Object, res:Object) {
         const id = parseInt(req.params.id, 10);
         db.map((message) => {
             if (message.id === id) {
@@ -27,7 +27,7 @@ class MessageController {
         });
     }
 
-    createMessage(req, res) {
+    createMessage(req:Object, res:Object) {
         if (!req.body.title) {
             return res.status(400).send({
                 success: 'false',
@@ -52,7 +52,7 @@ class MessageController {
         });
     }
 
-    updateMessage(req, res) {
+    updateMessage(req:Object, res:Object) {
         const id = parseInt(req.params.id, 10);
         let messageFound;
         let itemIndex;
@@ -97,7 +97,7 @@ class MessageController {
         });
     }
 
-    deleteMessage(req, res) {
+    deleteMessage(req:Object, res:Object) {
         const id = parseInt(req.params.id, 10);
         let messageFound;
         let itemIndex;
